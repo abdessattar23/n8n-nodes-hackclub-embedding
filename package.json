@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-hackclub-embedding",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hackclub embeddings for n8n AI",
   "license": "MIT",
   "homepage": "",
