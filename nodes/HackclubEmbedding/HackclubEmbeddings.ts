@@ -8,6 +8,10 @@ export interface HackclubEmbeddingsParams extends EmbeddingsParams {
 	stripNewLines?: boolean;
 }
 
+interface EmbeddingResponse {
+	data: Array<{ embedding: number[] }>;
+}
+
 export class HackclubEmbeddings extends Embeddings implements HackclubEmbeddingsParams {
 	apiKey: string;
 	model: string;
@@ -39,7 +43,8 @@ export class HackclubEmbeddings extends Embeddings implements HackclubEmbeddings
 					},
 				}
 			);
-			embeddings.push(...response.data.data.map((item: any) => item.embedding));
+			const responseData = response.data as EmbeddingResponse;
+			embeddings.push(...responseData.data.map((item) => item.embedding));
 		}
 
 		return embeddings;

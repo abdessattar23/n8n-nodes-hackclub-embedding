@@ -1,5 +1,5 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription, type SupplyData, type ISupplyDataFunctions } from 'n8n-workflow';
-import { HackclubEmbeddings } from './HackclubEmbeddings'; // You'll create this
+import { HackclubEmbeddings } from './HackclubEmbeddings';
 
 export class HackclubEmbedding implements INodeType {
 	description: INodeTypeDescription = {
@@ -12,6 +12,7 @@ export class HackclubEmbedding implements INodeType {
 		defaults: {
 			name: 'Hackclub Embedding',
 		},
+		usableAsTool: true,
 		codex: {
 			categories: ['AI'],
 			subcategories: {
@@ -87,7 +88,12 @@ export class HackclubEmbedding implements INodeType {
 						property: 'model',
 					},
 				},
-				default: 'openai/text-embedding-3-large',
+				default: '',
+				displayOptions: {
+					show: {
+						'@version': [1],
+					},
+				},
 			},
 			{
 				displayName: 'Options',
@@ -108,6 +114,7 @@ export class HackclubEmbedding implements INodeType {
 						displayName: 'Strip New Lines',
 						name: 'stripNewLines',
 						default: true,
+						description: 'Whether to strip new lines from input text',
 						type: 'boolean',
 					},
 				],
