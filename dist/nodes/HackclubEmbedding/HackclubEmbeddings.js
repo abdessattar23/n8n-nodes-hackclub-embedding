@@ -19,7 +19,7 @@ class HackclubEmbeddings extends embeddings_1.Embeddings {
         console.log('[HackclubEmbeddings] Strip new lines:', this.stripNewLines);
     }
     async embedDocuments(texts) {
-        var _a, _b;
+        var _a, _b, _c;
         console.log('[HackclubEmbeddings] Embedding documents, count:', texts.length);
         const batches = this.batchTexts(texts);
         console.log('[HackclubEmbeddings] Split into', batches.length, 'batches');
@@ -36,15 +36,17 @@ class HackclubEmbeddings extends embeddings_1.Embeddings {
                         Authorization: `Bearer ${this.apiKey}`,
                     },
                 });
+                console.log('[HackclubEmbeddings] Server response:', JSON.stringify(response.data, null, 2));
                 const responseData = response.data;
                 embeddings.push(...responseData.data.map((item) => item.embedding));
                 console.log(`[HackclubEmbeddings] Batch ${i + 1} completed, received ${responseData.data.length} embeddings`);
+                console.log('[HackclubEmbeddings] First embedding sample (first 5 values):', (_a = responseData.data[0]) === null || _a === void 0 ? void 0 : _a.embedding.slice(0, 5));
             }
             catch (error) {
                 console.error(`[HackclubEmbeddings] Error in batch ${i + 1}:`, error);
                 if (axios_1.default.isAxiosError(error)) {
-                    console.error('[HackclubEmbeddings] Response status:', (_a = error.response) === null || _a === void 0 ? void 0 : _a.status);
-                    console.error('[HackclubEmbeddings] Response data:', (_b = error.response) === null || _b === void 0 ? void 0 : _b.data);
+                    console.error('[HackclubEmbeddings] Response status:', (_b = error.response) === null || _b === void 0 ? void 0 : _b.status);
+                    console.error('[HackclubEmbeddings] Response data:', (_c = error.response) === null || _c === void 0 ? void 0 : _c.data);
                 }
                 throw error;
             }

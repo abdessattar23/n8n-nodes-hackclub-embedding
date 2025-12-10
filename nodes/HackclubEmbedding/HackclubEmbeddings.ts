@@ -53,9 +53,11 @@ export class HackclubEmbeddings extends Embeddings implements HackclubEmbeddings
 						},
 					}
 				);
+				console.log('[HackclubEmbeddings] Server response:', JSON.stringify(response.data, null, 2));
 				const responseData = response.data as EmbeddingResponse;
 				embeddings.push(...responseData.data.map((item) => item.embedding));
 				console.log(`[HackclubEmbeddings] Batch ${i + 1} completed, received ${responseData.data.length} embeddings`);
+				console.log('[HackclubEmbeddings] First embedding sample (first 5 values):', responseData.data[0]?.embedding.slice(0, 5));
 			} catch (error) {
 				console.error(`[HackclubEmbeddings] Error in batch ${i + 1}:`, error);
 				if (axios.isAxiosError(error)) {
