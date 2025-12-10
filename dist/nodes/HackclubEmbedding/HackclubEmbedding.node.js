@@ -51,7 +51,7 @@ class HackclubEmbedding {
                             routing: {
                                 request: {
                                     method: 'GET',
-                                    url: '/models',
+                                    url: '/embeddings/models',
                                 },
                                 output: {
                                     postReceive: [
@@ -59,12 +59,6 @@ class HackclubEmbedding {
                                             type: 'rootProperty',
                                             properties: {
                                                 property: 'data',
-                                            },
-                                        },
-                                        {
-                                            type: 'filter',
-                                            properties: {
-                                                pass: '={{ $responseItem.id.includes("embed") }}',
                                             },
                                         },
                                         {

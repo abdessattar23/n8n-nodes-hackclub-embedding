@@ -26,7 +26,7 @@ class HackclubEmbeddingApi {
         this.test = {
             request: {
                 baseURL: '={{$credentials?.apiUrl}}',
-                url: '/models',
+                url: '/embeddings/models',
                 headers: {
                     Authorization: 'Bearer ={{$credentials.apiKey}}',
                 },

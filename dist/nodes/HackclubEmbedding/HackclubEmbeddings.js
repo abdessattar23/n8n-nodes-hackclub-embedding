@@ -37,9 +37,12 @@ class HackclubEmbeddings extends embeddings_1.Embeddings {
         return embeddings[0];
     }
     batchTexts(texts, batchSize = 512) {
+        const processedTexts = this.stripNewLines
+            ? texts.map((text) => text.replace(/\n/g, ' '))
+            : texts;
         const batches = [];
-        for (let i = 0; i < texts.length; i += batchSize) {
-            batches.push(texts.slice(i, i + batchSize));
+        for (let i = 0; i < processedTexts.length; i += batchSize) {
+            batches.push(processedTexts.slice(i, i + batchSize));
         }
         return batches;
     }
