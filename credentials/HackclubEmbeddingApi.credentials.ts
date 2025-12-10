@@ -3,7 +3,7 @@ import type { ICredentialType, ICredentialTestRequest, INodeProperties } from 'n
 export class HackclubEmbeddingApi implements ICredentialType {
 	name = 'hackclubEmbeddingApi';
 	displayName = 'Hackclub Embedding API';
-	icon = 'file:hackclubEmbedding.svg'; // Relative to THIS file's directory
+	icon = { light: 'file:credentials/hackclubEmbedding.svg', dark: 'file:credentials/hackclubEmbedding.dark.svg' } as const;
 	documentationUrl = 'https://docs.ai.hackclub.com/api';
 	properties: INodeProperties[] = [
 		{

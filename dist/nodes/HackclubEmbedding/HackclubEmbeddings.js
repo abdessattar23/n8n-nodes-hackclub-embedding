@@ -27,7 +27,8 @@ class HackclubEmbeddings extends embeddings_1.Embeddings {
                     Authorization: `Bearer ${this.apiKey}`,
                 },
             });
-            embeddings.push(...response.data.data.map((item) => item.embedding));
+            const responseData = response.data;
+            embeddings.push(...responseData.data.map((item) => item.embedding));
         }
         return embeddings;
     }

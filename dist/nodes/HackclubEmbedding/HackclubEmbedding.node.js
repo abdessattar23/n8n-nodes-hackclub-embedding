@@ -15,6 +15,7 @@ class HackclubEmbedding {
             defaults: {
                 name: 'Hackclub Embedding',
             },
+            usableAsTool: true,
             codex: {
                 categories: ['AI'],
                 subcategories: {
@@ -90,7 +91,12 @@ class HackclubEmbedding {
                             property: 'model',
                         },
                     },
-                    default: 'openai/text-embedding-3-large',
+                    default: '',
+                    displayOptions: {
+                        show: {
+                            '@version': [1],
+                        },
+                    },
                 },
                 {
                     displayName: 'Options',
@@ -111,6 +117,7 @@ class HackclubEmbedding {
                             displayName: 'Strip New Lines',
                             name: 'stripNewLines',
                             default: true,
+                            description: 'Whether to strip new lines from input text',
                             type: 'boolean',
                         },
                     ],

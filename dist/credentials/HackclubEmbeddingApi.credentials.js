@@ -5,6 +5,8 @@ class HackclubEmbeddingApi {
     constructor() {
         this.name = 'hackclubEmbeddingApi';
         this.displayName = 'Hackclub Embedding API';
+        this.icon = { light: 'file:credentials/hackclubEmbedding.svg', dark: 'file:credentials/hackclubEmbedding.dark.svg' };
+        this.documentationUrl = 'https://docs.ai.hackclub.com/api';
         this.properties = [
             {
                 displayName: 'API Key',
@@ -21,6 +23,15 @@ class HackclubEmbeddingApi {
                 placeholder: 'https://ai.hackclub.com/proxy/v1',
             },
         ];
+        this.test = {
+            request: {
+                baseURL: '={{$credentials?.apiUrl}}',
+                url: '/models',
+                headers: {
+                    Authorization: 'Bearer ={{$credentials.apiKey}}',
+                },
+            },
+        };
     }
 }
 exports.HackclubEmbeddingApi = HackclubEmbeddingApi;

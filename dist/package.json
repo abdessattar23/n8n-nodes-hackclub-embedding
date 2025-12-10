@@ -4,11 +4,20 @@
     "description": "Hackclub embeddings for n8n AI",
     "license": "MIT",
     "homepage": "",
-    "keywords": ["n8n-community-node-package", "n8n", "hackclub", "embeddings", "ai"],
-    "author": { "name": "Your Name", "email": "you@example.com" },
+    "keywords": [
+        "n8n-community-node-package",
+        "n8n",
+        "hackclub",
+        "embeddings",
+        "ai"
+    ],
+    "author": {
+        "name": "Mohammed Abdessetar Elyagoubi",
+        "email": "wecode@hackclub.app"
+    },
     "repository": {
         "type": "git",
-        "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+        "url": "https://github.com/abdessattar23/n8n-nodes-hackclub-embedding.git"
     },
     "scripts": {
         "build": "n8n-node build",
@@ -22,14 +31,11 @@
     "files": ["dist"],
     "n8n": {
         "n8nNodesApiVersion": 1,
-        "strict": true,
+        "strict": false,
         "credentials": ["dist/credentials/HackclubEmbeddingApi.credentials.js"],
         "nodes": ["dist/nodes/HackclubEmbedding/HackclubEmbedding.node.js"]
     },
-    "dependencies": {
-        "@langchain/core": "*",
-        "axios": "*"
-    },
+    "dependencies": { "@langchain/core": "*", "axios": "*" },
     "devDependencies": {
         "@n8n/node-cli": "*",
         "eslint": "9.32.0",
