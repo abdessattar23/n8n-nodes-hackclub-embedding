@@ -24,7 +24,7 @@ export class HackclubEmbeddingApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials?.apiUrl}}',
-			url: '/models',
+			url: '/embeddings/models',
 			headers: {
 				Authorization: 'Bearer ={{$credentials.apiKey}}',
 			},

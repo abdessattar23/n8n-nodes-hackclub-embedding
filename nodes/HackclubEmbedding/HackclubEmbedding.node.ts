@@ -48,7 +48,7 @@ export class HackclubEmbedding implements INodeType {
 						routing: {
 							request: {
 								method: 'GET',
-								url: '/models',
+								url: '/embeddings/models',
 							},
 							output: {
 								postReceive: [
@@ -56,12 +56,6 @@ export class HackclubEmbedding implements INodeType {
 										type: 'rootProperty',
 										properties: {
 											property: 'data',
-										},
-									},
-									{
-										type: 'filter',
-										properties: {
-											pass: '={{ $responseItem.id.includes("embed") }}',
 										},
 									},
 									{

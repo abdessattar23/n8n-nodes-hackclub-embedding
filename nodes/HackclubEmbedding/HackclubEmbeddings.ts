@@ -56,9 +56,13 @@ export class HackclubEmbeddings extends Embeddings implements HackclubEmbeddings
 	}
 
 	private batchTexts(texts: string[], batchSize = 512): string[][] {
+		const processedTexts = this.stripNewLines
+			? texts.map((text) => text.replace(/\n/g, ' '))
+			: texts;
+
 		const batches: string[][] = [];
-		for (let i = 0; i < texts.length; i += batchSize) {
-			batches.push(texts.slice(i, i + batchSize));
+		for (let i = 0; i < processedTexts.length; i += batchSize) {
+			batches.push(processedTexts.slice(i, i + batchSize));
 		}
 		return batches;
 	}
