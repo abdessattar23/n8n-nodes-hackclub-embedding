@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Embeddings, type EmbeddingsParams } from '@langchain/core/embeddings';
 import axios from 'axios';
 
